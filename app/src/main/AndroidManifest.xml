@@ -22,4 +22,5 @@
         </activity>
         <activity android:name=".MyPop"/>
     </application>
+
 </manifest>

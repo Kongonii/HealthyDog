@@ -27,6 +27,7 @@ public class MyPop extends AppCompatActivity {
         getWindow().getAttributes().width = width;
         getWindow().getAttributes().height = height;
 
+
     }
 
 }
