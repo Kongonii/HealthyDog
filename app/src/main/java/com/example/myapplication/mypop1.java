@@ -8,11 +8,11 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MyPop extends AppCompatActivity {
+public class mypop1 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mypopup);
+        setContentView(R.layout.activity_mypopup1);
         WindowManager.LayoutParams layoutParams= new WindowManager.LayoutParams();
 
         layoutParams.flags= WindowManager.LayoutParams.FLAG_DIM_BEHIND;

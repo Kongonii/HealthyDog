@@ -16,7 +16,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MyPageActivity extends AppCompatActivity {
+public class my1 extends AppCompatActivity {
 
 
     ArrayAdapter<CharSequence> adspin1, adspin2, adspin3, adspin4, adspin5;
@@ -43,7 +43,7 @@ public class MyPageActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
 
 
-        setContentView(layout.activity_my_page);
+        setContentView(layout.activity_my1);
         final Spinner spin1 = (Spinner) findViewById(id.spinner_year1);
         final Spinner spin2 = (Spinner) findViewById(id.spinner_month1);
         final Spinner spin3 = (Spinner) findViewById(id.spinner_day1);
@@ -104,7 +104,7 @@ public class MyPageActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MyPop.class);
+                Intent intent = new Intent(getApplicationContext(), mypop1.class);
                 startActivity(intent);
             }
 
