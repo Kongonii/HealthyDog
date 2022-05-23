@@ -56,6 +56,18 @@ public class my1 extends AppCompatActivity {
 
                 setContentView(layout.activity_my1);
 
+                Intent intent = new Intent(my1.this, my2.class);
+
+                Button submit_1 = (Button) findViewById(id.submit_1);
+                submit_1.setOnClickListener(new View.OnClickListener(){
+
+                        @Override
+                        public void onClick(View view) {
+                                startActivity(intent);
+
+                        }
+                });
+
                 final Spinner spin1 = (Spinner) findViewById(id.spinner_year1);
                 final Spinner spin2 = (Spinner) findViewById(id.spinner_month1);
                 final Spinner spin3 = (Spinner) findViewById(id.spinner_day1);
@@ -65,22 +77,27 @@ public class my1 extends AppCompatActivity {
                 adspin1 = ArrayAdapter.createFromResource(this, array.year, android.R.layout.simple_spinner_dropdown_item);
                 adspin1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spin1.setAdapter(adspin1);
+                spin1.setSelection(1);
 
                 adspin2 = ArrayAdapter.createFromResource(this, array.month, android.R.layout.simple_spinner_dropdown_item);
                 adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spin2.setAdapter(adspin2);
+                spin2.setSelection(1);
 
                 adspin3 = ArrayAdapter.createFromResource(this, array.day, android.R.layout.simple_spinner_dropdown_item);
                 adspin3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spin3.setAdapter(adspin3);
+                spin3.setSelection(1);
 
                 adspin4 = ArrayAdapter.createFromResource(this, array.type, android.R.layout.simple_spinner_dropdown_item);
                 adspin4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spin4.setAdapter(adspin4);
+                spin4.setSelection(1);
 
                 adspin5 = ArrayAdapter.createFromResource(this, array.gender, android.R.layout.simple_spinner_dropdown_item);
                 adspin5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spin5.setAdapter(adspin5);
+                spin5.setSelection(1);
 
                 Female_1 = (Button) findViewById(id.Female_1);
                 Female_1.setOnClickListener(new OnClickListener() {
