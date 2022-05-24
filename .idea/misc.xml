@@ -6,11 +6,16 @@
         <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/imageviewradius.xml" value="0.1" />
         <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/radius.xml" value="0.342" />
         <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/radius2.xml" value="0.342" />
+        <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_c1.xml" value="0.27575887131252674" />
         <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_my1.xml" value="0.22" />
-        <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_my2.xml" value="0.25" />
+        <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_my2.xml" value="0.33" />
         <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_my_page.xml" value="0.33" />
         <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_mypopup.xml" value="0.33" />
         <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_mypopup1.xml" value="0.129115006412997" />
+        <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_care.xml" value="0.22484134179510426" />
+        <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_guide1.xml" value="0.22484134179510426" />
+        <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_guide2.xml" value="0.22484134179510426" />
+        <entry key="..\:/Users/heart/AndroidStudioProjects/MyApplication/app/src/main/res/menu/menu.xml" value="0.2791791363830697" />
       </map>
     </option>
   </component>

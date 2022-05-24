@@ -76,7 +76,7 @@
                 android:layout_height="48dp"
                 android:fontFamily="@font/gowundodum"
                 android:minHeight="45dp"
-                android:textAlignment="gravity"
+                android:textAlignment="center"
                 android:gravity="center"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -86,7 +86,7 @@
                 android:layout_height="48dp"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/gowundodum"
-                android:textAlignment="gravity"
+                android:textAlignment="center"
                 android:gravity="center"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -96,7 +96,7 @@
                 android:layout_height="48dp"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/gowundodum"
-                android:textAlignment="gravity"
+                android:textAlignment="center"
                 android:gravity="center"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
@@ -190,7 +190,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/walk_1"
+            android:id="@+id/walk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -207,7 +207,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextNumber"
+                android:id="@+id/walk_1"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
                 android:layout_marginRight="5dp"
