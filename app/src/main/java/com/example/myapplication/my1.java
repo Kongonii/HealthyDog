@@ -10,13 +10,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -29,14 +28,13 @@ public class my1 extends AppCompatActivity {
 
 
         ArrayAdapter<CharSequence> adspin1, adspin2, adspin3, adspin4, adspin5;
-        RadioButton girl, boy;
+        Button Female_1;
+        Button Male_1;
         private boolean check = false;
         ImageButton profile_pic1;
         ImageView profile1;
-        RadioGroup gender_1;
         private static final int PICK_IMAGE_REQUEST = 1;
-        private int n = 0;
-        private String t = null;
+
 
 
 
@@ -44,8 +42,6 @@ public class my1 extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
                 EditText input;
                 EditText walk;
-                RadioButton boy1;
-                RadioButton girl1;
 
 
 
@@ -66,6 +62,7 @@ public class my1 extends AppCompatActivity {
 
 
                 setContentView(layout.activity_my1);
+                //스피너 값 선택하기
 
                 final Spinner spin1 = (Spinner) findViewById(id.spinner_year1);
                 final Spinner spin2 = (Spinner) findViewById(id.spinner_month1);
@@ -98,29 +95,33 @@ public class my1 extends AppCompatActivity {
                 spin5.setAdapter(adspin5);
                 spin5.setSelection(0);
 
-                input = (EditText) findViewById(R.id.inputname);
-                walk = (EditText) findViewById(id.walk_1);
 
 
 
 
-                Intent intent = new Intent(my1.this, my2.class);
+                input= (EditText)findViewById(R.id.inputname);
+                walk = (EditText)findViewById(id.walk_1);
 
 
+
+                Intent intent = new Intent(my1.this, my2.class);//여기서부터 인텐트
 
 
                 Button submit_1 = (Button) findViewById(id.submit_1);
-                submit_1.setOnClickListener(new View.OnClickListener() {
+                submit_1.setOnClickListener(new View.OnClickListener(){
 
                         @Override
                         public void onClick(View view) {
 
+                               // SharedPreferences sharedPreferences = getSharedPreferences("test", MODE_PRIVATE);
+                                //SharedPreferences.Editor editor = sharedPreferences.edit();
+                               // editor.putString("name", String.valueOf(inputname));
+                                //editor.commit();
+                                //이 부분이 shared 써 본 부분, m2에 적용하는 코드 지워서 없어요..!
 
 
                                 String name = input.getText().toString();
                                 String time = walk.getText().toString();
-                                String boy1 = boy.getText().toString();
-                                String girl1 = girl.getText().toString();
 
                                 intent.putExtra("이름", name);
                                 intent.putExtra("시간", time);
@@ -131,33 +132,61 @@ public class my1 extends AppCompatActivity {
                                 intent.putExtra("중성화", spin5.getSelectedItem().toString());
 
 
+
+
+
+
+
+
+
                                 startActivity(intent);
 
                         }
+                }); //클릭 시 인텐트 부분 끝
 
+
+
+
+
+
+
+
+
+
+                Female_1 = (Button) findViewById(id.Female_1);
+                Female_1.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                                if (check == false) {
+                                        check = true;
+                                        Female_1.setSelected(true);
+                                } else {
+                                        check = false;
+                                        Female_1.setSelected(false);
+                                }
+                        }
                 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                Male_1 = (Button) findViewById(id.Male_1);
+                Male_1.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                                if (check == false) {
+                                        check = true;
+                                        Male_1.setSelected(true);
+                                } else {
+                                        check = false;
+                                        Male_1.setSelected(false);
+                                }
+                        }
+                });
 
                 ImageButton profile_pic1 = (ImageButton)findViewById(id.profile_pic1);
 
 
                 profile_pic1.setOnClickListener(new View.OnClickListener() {
 
-                        @Override
+                        @Override //갤러리 부분
                         public void onClick(View view) {
                                 Intent intent = new Intent();
                                 intent.setType("image/*");
@@ -166,29 +195,31 @@ public class my1 extends AppCompatActivity {
                         }
                 });
         }
-        @Override
+        @Override //사진 띄우기
         public  void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
 
                 super.onActivityResult(requestCode, resultCode, data);
                 if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
                         Uri uri = data.getData();
-                                try {
-                                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                                        ImageView profile1 = (ImageView) findViewById(id.profile1);
-                                        profile1.setImageBitmap(bitmap);
+
+                        try {
+                                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                                ImageView profile1 = (ImageView) findViewById(id.profile1);
+                                profile1.setImageBitmap(bitmap);
 
 
 
 
 
-                                } catch (IOException e) {
-                                        e.printStackTrace();
-                                }
+
+                        } catch (IOException e) {
+                                e.printStackTrace();
+                        }
 
                 }else if (resultCode == RESULT_CANCELED){
-                                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
 
-                        }
                 }
         }
+}
