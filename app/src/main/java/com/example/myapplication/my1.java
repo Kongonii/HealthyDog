@@ -10,12 +10,13 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -28,12 +29,14 @@ public class my1 extends AppCompatActivity {
 
 
         ArrayAdapter<CharSequence> adspin1, adspin2, adspin3, adspin4, adspin5;
-        Button Female_1;
-        Button Male_1;
+        RadioButton girl, boy;
         private boolean check = false;
         ImageButton profile_pic1;
         ImageView profile1;
+        RadioGroup gender_1;
         private static final int PICK_IMAGE_REQUEST = 1;
+        private int n = 0;
+        private String t = null;
 
 
 
@@ -41,6 +44,9 @@ public class my1 extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
                 EditText input;
                 EditText walk;
+                RadioButton boy1;
+                RadioButton girl1;
+
 
 
 
@@ -92,12 +98,8 @@ public class my1 extends AppCompatActivity {
                 spin5.setAdapter(adspin5);
                 spin5.setSelection(0);
 
-                input = (EditText)findViewById(R.id.inputname);
-                walk = (EditText)findViewById(id.walk_1);
-
-
-
-
+                input = (EditText) findViewById(R.id.inputname);
+                walk = (EditText) findViewById(id.walk_1);
 
 
 
@@ -105,14 +107,20 @@ public class my1 extends AppCompatActivity {
                 Intent intent = new Intent(my1.this, my2.class);
 
 
+
+
                 Button submit_1 = (Button) findViewById(id.submit_1);
-                submit_1.setOnClickListener(new View.OnClickListener(){
+                submit_1.setOnClickListener(new View.OnClickListener() {
 
                         @Override
                         public void onClick(View view) {
 
+
+
                                 String name = input.getText().toString();
                                 String time = walk.getText().toString();
+                                String boy1 = boy.getText().toString();
+                                String girl1 = girl.getText().toString();
 
                                 intent.putExtra("이름", name);
                                 intent.putExtra("시간", time);
@@ -123,42 +131,26 @@ public class my1 extends AppCompatActivity {
                                 intent.putExtra("중성화", spin5.getSelectedItem().toString());
 
 
-
-
                                 startActivity(intent);
 
                         }
+
                 });
 
 
 
-                Female_1 = (Button) findViewById(id.Female_1);
-                Female_1.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                                if (check == false) {
-                                        check = true;
-                                        Female_1.setSelected(true);
-                                } else {
-                                        check = false;
-                                        Female_1.setSelected(false);
-                                }
-                        }
-                });
 
-                Male_1 = (Button) findViewById(id.Male_1);
-                Male_1.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                                if (check == false) {
-                                        check = true;
-                                        Male_1.setSelected(true);
-                                } else {
-                                        check = false;
-                                        Male_1.setSelected(false);
-                                }
-                        }
-                });
+
+
+
+
+
+
+
+
+
+
+
 
                 ImageButton profile_pic1 = (ImageButton)findViewById(id.profile_pic1);
 
