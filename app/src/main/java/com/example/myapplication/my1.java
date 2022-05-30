@@ -4,6 +4,7 @@ import static com.example.myapplication.R.id;
 import static com.example.myapplication.R.layout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,8 +41,6 @@ public class my1 extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
-                EditText input;
-                EditText walk;
 
 
 
@@ -99,12 +98,13 @@ public class my1 extends AppCompatActivity {
 
 
 
-                input= (EditText)findViewById(R.id.inputname);
-                walk = (EditText)findViewById(id.walk_1);
 
 
 
-                Intent intent = new Intent(my1.this, my2.class);//여기서부터 인텐트
+                //여기서부터 인텐트
+
+                final EditText inputname = findViewById(id.inputname);
+
 
 
                 Button submit_1 = (Button) findViewById(id.submit_1);
@@ -113,36 +113,31 @@ public class my1 extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
 
-                               // SharedPreferences sharedPreferences = getSharedPreferences("test", MODE_PRIVATE);
-                                //SharedPreferences.Editor editor = sharedPreferences.edit();
-                               // editor.putString("name", String.valueOf(inputname));
-                                //editor.commit();
-                                //이 부분이 shared 써 본 부분, m2에 적용하는 코드 지워서 없어요..!
+
+                                String name = inputname.getText().toString().trim();
+                                String type = spin4.getSelectedItem().toString().trim();
+                                String year = spin1.getSelectedItem().toString().trim();
+                                String month = spin2.getSelectedItem().toString().trim();
+                                String day = spin3.getSelectedItem().toString().trim();
+
+                                SharedPreferences sharedPreferences = getSharedPreferences("MY", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("name", name);
+                                editor.putString("type", type);
+                                editor.putString("year", year);
+                                editor.putString("month", month);
+                                editor.putString("day", day);
 
 
-                                String name = input.getText().toString();
-                                String time = walk.getText().toString();
-
-                                intent.putExtra("이름", name);
-                                intent.putExtra("시간", time);
-                                intent.putExtra("년도", spin1.getSelectedItem().toString());
-                                intent.putExtra("월", spin2.getSelectedItem().toString());
-                                intent.putExtra("일", spin3.getSelectedItem().toString());
-                                intent.putExtra("견종", spin4.getSelectedItem().toString());
-                                intent.putExtra("중성화", spin5.getSelectedItem().toString());
-
-
-
-
+                                editor.apply();
+                                Intent intent = new Intent(my1.this, my2.class);
 
 
 
-
-
-                                startActivity(intent);
+                                startActivity(intent);//my2불러오기기
 
                         }
-                }); //클릭 시 인텐트 부분 끝
+               }); //클릭 시 인텐트 부분 끝
 
 
 
